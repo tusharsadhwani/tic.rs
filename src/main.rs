@@ -141,7 +141,7 @@ fn check_winner(board: &[String; 9], player: &String) -> bool {
     for combination in winning_combinations.iter() {
         if combination
             .iter()
-            .all(|&position| *board[position] == *player)
+            .all(|&position| &board[position] == player)
         {
             return true;
         }
@@ -151,5 +151,5 @@ fn check_winner(board: &[String; 9], player: &String) -> bool {
 }
 
 fn check_tie(board: &[String; 9]) -> bool {
-    return board.iter().all(|position| *position != " ");
+    return board.iter().all(|char| char != " ");
 }
